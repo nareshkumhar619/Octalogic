@@ -28,7 +28,7 @@ const SideMenu = () => {
           </li>
           <li>
             <a
-              href=""
+              href="/courses"
               className=" px-4 py-2 flex justify-center items-center flex-col  text-black bg-gray-300 border m-4 rounded-md hover:bg-pink-300 hover:text-pink-700 duration-1000"
             >
               <img src={course} alt="" />
