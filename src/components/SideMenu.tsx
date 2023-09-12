@@ -8,6 +8,7 @@ const SideMenu = () => {
   const navigate = useNavigate()
   const handleClick = () => {
     navigate("/signin")
+    localStorage.removeItem("invoices")
 }
   return (
     <>

@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import {
   Table,
   TableBody,
@@ -7,109 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import Action from "./Action";
-
-const invoices = [
-  {
-    name: "Classical Guitar",
-    desc: "Guitar classes ",
-    instructor: "Ms. Jane Doe",
-    instrument: "Guitar",
-    day: "Wednesday",
-    student: "26",
-    price: "$60",
-    status: "Active",
-  },
-  {
-    name: "Column",
-    desc: "column ",
-    instructor: "column",
-    instrument: "column",
-    day: "column",
-    student: "column",
-    price: "column",
-    status: "Active",
-  },
-  {
-    name: "Column",
-    desc: "column ",
-    instructor: "column",
-    instrument: "column",
-    day: "column",
-    student: "column",
-    price: "column",
-    status: "Active",
-  },
-  {
-    name: "Column",
-    desc: "column ",
-    instructor: "column",
-    instrument: "column",
-    day: "column",
-    student: "column",
-    price: "column",
-    status: "Closed",
-  },
-  {
-    name: "Column",
-    desc: "column ",
-    instructor: "column",
-    instrument: "column",
-    day: "column",
-    student: "column",
-    price: "column",
-    status: "Closed",
-  },
-  {
-    name: "Column",
-    desc: "column ",
-    instructor: "column",
-    instrument: "column",
-    day: "column",
-    student: "column",
-    price: "column",
-    status: "Closed",
-  },
-  {
-    name: "Column",
-    desc: "column ",
-    instructor: "column",
-    instrument: "column",
-    day: "column",
-    student: "column",
-    price: "column",
-    status: "Closed",
-  },
-  {
-    name: "Column",
-    desc: "column ",
-    instructor: "column",
-    instrument: "column",
-    day: "column",
-    student: "column",
-    price: "column",
-    status: "Archived",
-  },
-  {
-    name: "Column",
-    desc: "column ",
-    instructor: "column",
-    instrument: "column",
-    day: "column",
-    student: "column",
-    price: "column",
-    status: "Archived",
-  },
-  {
-    name: "Column",
-    desc: "column ",
-    instructor: "column",
-    instrument: "column",
-    day: "column",
-    student: "column",
-    price: "column",
-    status: "Archived",
-  },
-];
+import { useSelector, useDispatch } from 'react-redux';
 const getStatus = (status) => {
   switch (status) {
     case "Active":
@@ -124,15 +23,17 @@ const getStatus = (status) => {
 };
 
 export default function CourseTable() {
+  const dispatch = useDispatch();
+  const invoices = JSON.parse(localStorage.getItem('invoices'));
   return (
-    <Table className="w-full ">
+    <Table className="w-full">
       <TableHeader>
         <TableRow>
           <TableHead className="">Name</TableHead>
-          <TableHead className="text-center ">Description</TableHead>
-          <TableHead className="text-center ">Instructor</TableHead>
-          <TableHead className="text-center ">Instrument</TableHead>
-          <TableHead className="text-center ">Day of Week</TableHead>
+          <TableHead className="text-center">Description</TableHead>
+          <TableHead className="text-center">Instructor</TableHead>
+          <TableHead className="text-center">Instrument</TableHead>
+          <TableHead className="text-center">Day of Week</TableHead>
           <TableHead className="text-center"># of Student</TableHead>
           <TableHead className="text-center">Price</TableHead>
           <TableHead className="text-center">Status</TableHead>
@@ -140,8 +41,8 @@ export default function CourseTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {invoices.map((invoice) => (
-          <TableRow key={invoice.name}>
+        {invoices.map((invoice, index) => (
+          <TableRow key={index}>
             <TableCell>{invoice.name}</TableCell>
             <TableCell className="text-center">{invoice.desc}</TableCell>
             <TableCell className="text-center">{invoice.instructor}</TableCell>
@@ -152,11 +53,11 @@ export default function CourseTable() {
             <TableCell
               className={`text-center border rounded-lg p-2 ${getStatus(
                 invoice.status
-              )} `}
+              )}`}
             >
               {invoice.status}
             </TableCell>
-            <TableCell className=" text-center cursor-pointer ">
+            <TableCell className="text-center cursor-pointer">
               <Action />
             </TableCell>
           </TableRow>

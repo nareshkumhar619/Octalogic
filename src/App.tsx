@@ -1,13 +1,19 @@
 import './App.css'
-import React from 'react';
+import React, { useEffect } from 'react';
 import Home from './Pages/HomePage';
-import Signup from './components/Signup';
+import Signup from './Pages/Signup';
 import { Routes, Route} from 'react-router-dom'
-import Signin from './components/Signin';
+import Signin from './Pages/Signin';
 import Courses from './Pages/Courses';
+import { useDispatch } from 'react-redux';
+import data from "./components/CourseData.json"
+import { loadInvoices } from './Redux/Action';
 
-
-const App: React.FC = () => {
+const App = () => {
+  const dispatch=useDispatch()
+  useEffect(()=>{
+    dispatch(loadInvoices(data))
+  },[])
   return (
     <>
     <Routes>

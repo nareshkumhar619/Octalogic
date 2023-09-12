@@ -4,6 +4,7 @@ import CourseTable from "@/components/CourseTable";
 import { AddCourse } from "@/components/AddCourse";
 
 const Courses = () => {
+  
   return (
     <div className="flex gap-5   bg-gray-200">
       <SideMenu />
@@ -18,6 +19,7 @@ const Courses = () => {
               type="search"
             />
             <img src={search} alt="" className=" absolute bottom-2 left-2 " />
+
           </div>
         </div>
         <div className="border bg-white rounded-md">
