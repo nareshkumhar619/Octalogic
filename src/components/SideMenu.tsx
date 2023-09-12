@@ -2,8 +2,13 @@ import logo from "../assets/Logo.png";
 import home from "../assets/home.png";
 import course from "../assets/course.png";
 import logout from "../assets/logout.png";
+import { useNavigate } from "react-router-dom";
 
 const SideMenu = () => {
+  const navigate = useNavigate()
+  const handleClick = () => {
+    navigate("/signin")
+}
   return (
     <>
       <div className="bg-white w-36 h-screen border-2">
@@ -31,9 +36,9 @@ const SideMenu = () => {
             </a>
           </li>
         </ul>
-        <div className="px-4 py-2 flex justify-center items-center flex-col ">
+        <div onClick={()=>handleClick()} className="px-4 py-2 flex justify-center items-center flex-col ">
           <img src={logout} alt="" />
-          <a href="/">Logout</a>
+          <button>Logout</button>
         </div>
       </div>
     </>

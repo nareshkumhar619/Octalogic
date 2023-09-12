@@ -68,7 +68,7 @@ import {
         <TableBody>
           {invoices.map((invoice) => (
             <TableRow key={invoice.EnrNo}>
-              <TableCell>{invoice.EnrNo}</TableCell>
+              <TableCell className="text-start" >{invoice.EnrNo}</TableCell>
               <TableCell className="text-center">{invoice.Sname}</TableCell>
               <TableCell className="text-center">{invoice.Cname}</TableCell>
               <TableCell className="text-center">{invoice.Fees}</TableCell>

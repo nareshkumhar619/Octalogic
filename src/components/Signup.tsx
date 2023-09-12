@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link } from 'react-router-dom';
 
 const Signup: React.FC = () => {
     const navigate = useNavigate()
@@ -23,7 +23,7 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto my-10 p-5 bg-white rounded shadow">
+    <div className="max-w-md mx-auto my-10 p-5 bg-green-200  rounded shadow-lg">
       <h2 className="text-2xl font-semibold mb-4">Sign Up</h2>
       <form onSubmit={handleSignUp}>
         <div className="mb-4">
@@ -65,6 +65,12 @@ const Signup: React.FC = () => {
         >
           Sign Up
         </button>
+        <div className="">
+          Already have an account ?
+          <Link to="/signin">
+            <span style={{ color: "blue", cursor: "pointer" }}>Sign In</span>
+          </Link>
+        </div>
       </form>
     </div>
   );

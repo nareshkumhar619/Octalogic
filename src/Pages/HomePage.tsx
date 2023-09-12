@@ -2,6 +2,8 @@ import Card from "@/HomeLayout/Card";
 import SideMenu from "@/components/SideMenu";
 import LatestEnrollment from "@/components/LetestEnrollment";
 import BestStudent from "@/components/BestStudents";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const dummy = [
   {
@@ -27,6 +29,16 @@ const dummy = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate()
+ 
+  useEffect(()=> {
+    const user = localStorage.getItem("user");
+    if (!user) {
+      navigate("./signup");
+    }
+  }, [])
+  
+
   return (
     <div className="flex gap-5 bg-gray-200">
       <SideMenu />

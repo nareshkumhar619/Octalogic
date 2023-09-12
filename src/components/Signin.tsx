@@ -1,6 +1,6 @@
 // src/components/SignIn.tsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link} from 'react-router-dom';
 
 const SignIn: React.FC = () => {
     const navigate = useNavigate()
@@ -25,7 +25,7 @@ const SignIn: React.FC = () => {
       storedUser.password === formData.password
     ) {
       alert('Sign in successful');
-      navigate("/home")
+      navigate("/")
       // Perform additional actions for signed-in users
     } else {
       alert('Sign in failed');
@@ -33,7 +33,7 @@ const SignIn: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto my-10 p-5 bg-white rounded shadow">
+    <div className="max-w-md mx-auto my-10 p-5 bg-green-200  rounded shadow-lg">
       <h2 className="text-2xl font-semibold mb-4">Sign In</h2>
       <form onSubmit={handleSignIn}>
         <div className="mb-4">
@@ -64,6 +64,12 @@ const SignIn: React.FC = () => {
         >
           Sign In
         </button>
+        <div className="loginForm2">
+          Don't have an account ?
+          <Link to="/signup">
+            <span style={{ color: "blue", cursor: "pointer" }}>Sign Up</span>
+          </Link>
+        </div>
       </form>
     </div>
   );
