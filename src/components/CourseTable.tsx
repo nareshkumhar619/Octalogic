@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import {
   Table,
   TableBody,
@@ -9,6 +8,7 @@ import {
 } from "@/components/ui/table";
 import Action from "./Action";
 import { useSelector, useDispatch } from 'react-redux';
+
 const getStatus = (status) => {
   switch (status) {
     case "Active":
@@ -26,6 +26,7 @@ export default function CourseTable() {
   const dispatch = useDispatch();
   const invoices = JSON.parse(localStorage.getItem('invoices'));
   return (
+    <>
     <Table className="w-full">
       <TableHeader>
         <TableRow>
@@ -64,5 +65,6 @@ export default function CourseTable() {
         ))}
       </TableBody>
     </Table>
+    </>
   );
 }
